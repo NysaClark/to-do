@@ -7,13 +7,11 @@ import {
   Card,
   Button,
 } from "semantic-ui-react";
-import HeadTags from "./layout/HeadTags";
 
-const index = ({ todos }) => {
+const Index = ({ todos }) => {
   const [page, setPage] = useState(1);
   return (
     <>
-      {/* <HeadTags /> */}
       {todos ? (
         <Container fluid textAlign="center" style={{ marginTop: "4rem" }}>
           <Header color="orange" as="h1">
@@ -93,10 +91,10 @@ const index = ({ todos }) => {
           <Pagination defaultActivePage={1} totalPages={10} onPageChange={(e, data) => setPage(data.activePage)} />
         </Container>
       ) : (
-        <Container text>DIDN'T RECEIVE JSON</Container>
+        <Container text>DID NOT RECEIVE JSON</Container>
       )}
     </>
   );
 };
 
-export default index;
+export default Index;
