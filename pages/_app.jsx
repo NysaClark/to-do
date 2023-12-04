@@ -11,7 +11,7 @@ MyApp.getInitialProps = async () => {
   let pageProps = {};
 
   try {
-    const res = await fetch('http://localhost:3000/api/todos');
+    const res = await fetch('https://to-do-nysaclark.vercel.app/api/todos');
 
     const {todos} = await res.json();
 
