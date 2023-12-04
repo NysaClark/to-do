@@ -29,42 +29,8 @@ const Index = ({ todos }) => {
             }}
           >
             {todos.map((task) => {
-              switch (task.userId) {
-                case 1:
-                  task.name = "Jimmy";
-                  break;
-                case 2:
-                  task.name = "Billy";
-                  break;
-                case 3:
-                  task.name = "Jill";
-                  break;
-                case 4:
-                  task.name = "Ben";
-                  break;
-                case 5:
-                  task.name = "Jenny";
-                  break;
-                case 6:
-                  task.name = "Stacy";
-                  break;
-                case 7:
-                  task.name = "Daniel";
-                  break;
-                case 8:
-                  task.name = "Mark";
-                  break;
-                case 9:
-                  task.name = "Mary";
-                  break;
-                case 10:
-                  task.name = "Luke";
-                  break;
-                default:
-                  task.name = "User";
-              }
 
-              if (task.id > 20 * page || task.id <= 20 * (page-1) ) { // P1: 1-20, P2: 21-40 
+              if (task.id > 20 * page || task.id <= 20 * (page-1) ) {
                 return;
               }
 
@@ -88,7 +54,7 @@ const Index = ({ todos }) => {
               );
             })}
           </Grid>
-          <Pagination defaultActivePage={1} totalPages={10} onPageChange={(e, data) => setPage(data.activePage)} />
+          <Pagination defaultActivePage={1} totalPages={Math.ceil(todos.length / 20)} onPageChange={(e, data) => setPage(data.activePage)} />
         </Container>
       ) : (
         <Container text>DID NOT RECEIVE JSON</Container>
